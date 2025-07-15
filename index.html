@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="query.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="card">
+        <h2><ion-icon name="location-outline"></ion-icon><span id="location"></span></h2>
+        <h6 id="weather"></h6>
+        <h4><span id="temp"></span><sup>o</sup>C</h4>
+        <img src="" id="icon">
+        <button onClick="window.location.reload()" class="refresh"><ion-icon name="sync-outline"></ion-icon></button>
+    </div>
+</div>
+<!-- to add jQuery to website -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    link="https://api.openweathermap.org/data/2.5/weather?q=pune&appid=60bd9b852f79b7cf128c39b2e4f186d9";
+    var request = new XMLHttpRequest();
+    request.open('GET',link ,true);
+    request.onload = function(){
+    var object = JSON.parse(this.response);
+    console.log(object);
+    document.getElementById('weather').innerHTML = object.weather[0].description;
+    document.getElementById('location').innerHTML = object.name;
+    document.getElementById('temp').innerHTML = Math.round(object.main.temp - 273.15);
+    document.getElementById('icon').src = "https://openweathermap.org/img/w/"+object.weather[0].icon+".png";
+    }
+    if(request.status>=200 && request.status<400){
+    var temp = object.main.temp;
+    }
+    else{
+    console.log("City data is not available");
+    }
+    request.send();
+</script>
+</body>
+</html>

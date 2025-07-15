@@ -1,0 +1,38 @@
+/* Tablet devices (max-width: 900px) */
+@media (max-width: 900px) {
+    .container {
+        width: 60%;
+    }
+    .card h4 {
+        font-size: 3rem;
+    }
+    .card h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Mobile devices (max-width: 600px) */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 0 5px;
+    }
+    .card {
+        border-radius: 10%;
+        padding: 6% 2%;
+    }
+    .card h4 {
+        font-size: 2rem;
+    }
+    .card h2 {
+        font-size: 1.2rem;
+    }
+    #icon {
+        width: 40% !important;
+    }
+    button.refresh {
+        width: 70px;
+        height: 70px;
+        font-size: 20px;
+    }
+}
